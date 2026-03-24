@@ -1,1 +1,326 @@
-in
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OnlyFlans</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fff8f0;
+      color: #3b2a1a;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #c8702a;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul a {
+      text-decoration: none;
+      color: #3b2a1a;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover {
+      color: #c8702a;
+    }
+
+    /* HERO */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #fde8c8 0%, #fff8f0 100%);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      color: #c8702a;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      line-height: 1.7;
+      color: #6b4c2a;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero .btn {
+      background-color: #c8702a;
+      color: #fff;
+      padding: 0.9rem 2.5rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .hero .btn:hover {
+      background-color: #a85c20;
+      transform: translateY(-2px);
+    }
+
+    /* PRODUCTS */
+    .products {
+      padding: 5rem 3rem;
+      text-align: center;
+    }
+
+    .products h2 {
+      font-size: 2.2rem;
+      color: #c8702a;
+      margin-bottom: 3rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .product-card .icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .product-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: #3b2a1a;
+    }
+
+    .product-card p {
+      font-size: 0.95rem;
+      color: #7a5c3a;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .product-card .price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #c8702a;
+    }
+
+    /* ABOUT */
+    .about {
+      background-color: #fdf3e7;
+      padding: 5rem 3rem;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 2.2rem;
+      color: #c8702a;
+      margin-bottom: 1.5rem;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #6b4c2a;
+    }
+
+    /* CONTACT */
+    .contact {
+      padding: 5rem 3rem;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 2.2rem;
+      color: #c8702a;
+      margin-bottom: 1rem;
+    }
+
+    .contact p {
+      font-size: 1.05rem;
+      color: #6b4c2a;
+      margin-bottom: 2rem;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .contact form input,
+    .contact form textarea {
+      width: 100%;
+      padding: 0.85rem 1.2rem;
+      border: 1.5px solid #e0c8a0;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .contact form input:focus,
+    .contact form textarea:focus {
+      border-color: #c8702a;
+    }
+
+    .contact form textarea {
+      height: 130px;
+      resize: vertical;
+    }
+
+    .contact form button {
+      background-color: #c8702a;
+      color: #fff;
+      padding: 0.85rem 2.5rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .contact form button:hover {
+      background-color: #a85c20;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #3b2a1a;
+      color: #e8d5b8;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+
+    footer span {
+      color: #c8702a;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">OnlyFlans</div>
+    <ul>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h1>El flan que mereces</h1>
+    <p>Flanes artesanales hechos con amor, ingredientes naturales y la receta que tu abuela nunca te dio.</p>
+    <a href="#productos" class="btn">Ver productos</a>
+  </section>
+
+  <section class="products" id="productos">
+    <h2>Nuestros Flanes</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="icon">🍮</div>
+        <h3>Flan Clásico</h3>
+        <p>El de siempre, cremoso y suave, con un caramelo dorado perfecto.</p>
+        <div class="price">$85</div>
+      </div>
+      <div class="product-card">
+        <div class="icon">☕</div>
+        <h3>Flan de Café</h3>
+        <p>Intensidad de espresso mezclada con la suavidad del flan tradicional.</p>
+        <div class="price">$95</div>
+      </div>
+      <div class="product-card">
+        <div class="icon">🥥</div>
+        <h3>Flan de Coco</h3>
+        <p>Textura tropical, aroma de coco tostado y un toque de vainilla.</p>
+        <div class="price">$95</div>
+      </div>
+      <div class="product-card">
+        <div class="icon">🍫</div>
+        <h3>Flan de Chocolate</h3>
+        <p>Para los amantes del chocolate oscuro. Intenso, suave y adictivo.</p>
+        <div class="price">$100</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="nosotros">
+    <h2>Sobre Nosotros</h2>
+    <p>
+      En <strong>OnlyFlans</strong> creemos que el flan es más que un postre: es una experiencia. Nació en una cocina familiar con una receta de tres generaciones y hoy lo llevamos hasta tu mesa con los mismos cuidados de siempre. Sin conservadores, sin aditivos, solo ingredientes que reconoces.
+    </p>
+  </section>
+
+  <section class="contact" id="contacto">
+    <h2>Contáctanos</h2>
+    <p>¿Tienes un pedido especial o quieres saber más? Escríbenos.</p>
+    <form>
+      <input type="text" placeholder="Tu nombre" required />
+      <input type="email" placeholder="Tu correo" required />
+      <textarea placeholder="Tu mensaje"></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 <span>OnlyFlans</span>. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
